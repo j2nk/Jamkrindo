@@ -1,0 +1,64 @@
+{
+    "data" : [
+       {
+          "nama_terjamin" : "Panji Nurfirman",
+          "mitra" : "BRI",
+          "total_pengajuan" : "12"
+       },
+       {
+          "nama_terjamin" : "Fitri Fardia",
+          "mitra" : "Mandiri",
+          "total_pengajuan" : "11"
+       },
+       {
+          "nama_terjamin" : "Mario Stefano",
+          "mitra" : "BNI",
+          "total_pengajuan" : "10"
+       },
+       {
+          "nama_terjamin" : "Teopilus Sutjiana",
+          "mitra" : "BII Maybank",
+          "total_pengajuan" : "9"
+       },
+       {
+          "nama_terjamin" : "Bambang Karyadi",
+          "mitra" : "Bank Jatim",
+          "total_pengajuan" : "8"
+       },
+       {
+          "nama_terjamin" : "Sylvina Kwandou",
+          "mitra" : "BPD NTB",
+          "total_pengajuan" : "7"
+       },
+       {
+          "nama_terjamin" : "Rogers Hadikusuma W",
+          "mitra" : "Bank Sinarmas",
+          "total_pengajuan" : "6"
+       },
+       {
+          "nama_terjamin" : "Daniel Yuwono",
+          "mitra" : "Bank Jabar",
+          "total_pengajuan" : "5"
+       },
+       {
+          "nama_terjamin" : "David Margahung",
+          "mitra" : "Bukopin",
+          "total_pengajuan" : "4"
+       },
+       {
+          "nama_terjamin" : "Kurniyati",
+          "mitra" : "Mandiri Syariah",
+          "total_pengajuan" : "3"
+       },
+       {
+          "nama_terjamin" : "Suwito Yaputera",
+          "mitra" : "BTPN",
+          "total_pengajuan" : "2"
+       },
+       {
+          "nama_terjamin" : "Herrik Sidarta",
+          "mitra" : "BCA",
+          "total_pengajuan" : "1"
+       }
+    ]
+ }

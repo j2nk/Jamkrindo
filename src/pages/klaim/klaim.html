@@ -1,0 +1,131 @@
+<!-- -->
+<ion-header>
+  <ion-navbar color="primary" style="color: white">
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <!-- <ion-title> -->
+      {{header}}
+    <!-- </ion-title> -->
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-row style="background-color: white">
+    <ion-col col-6>
+    <div style="display: block;width: 200px;">
+      <canvas baseChart
+              [data]="doughnutChartData"
+              [chartType]="doughnutChartType"
+              [colors]="colors"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+    <div style="margin-top: -50px; margin-left: 80px; font-size: 12px; color:black;">
+      <strong>37.01%</strong>
+    </div>
+    </ion-col>
+    <ion-col col-6>
+      PERSENTASE
+      <ion-row>
+        <ion-col col-3>
+          <ion-card no-margin margin-bottom style="background-color: #3698DB;height: 10px;width: 15px;"></ion-card>
+        </ion-col>
+        <ion-col >
+            Klaim Dalam Prosess
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3>
+          <ion-card no-margin margin-bottom style="background-color: #B0DCF6;height: 10px;width: 15px;"></ion-card>
+        </ion-col>
+        <ion-col >
+            Keseluruhan Klaim
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-slides style="height: 20%;">
+      <ion-slide>
+        <ion-row>
+        <ion-col col-6>
+          <ion-card no-margin class="full-width" style="background-color:#42A6FA;height: 90px; ">
+            <!-- <ion-icon name="alarm" style="font-size: 10ch" item-left></ion-icon> -->
+            <img src="assets/icon/ic_rata-rata-pengajuan.png" style="width: 40px;margin-top: 22px">
+            <div style="color: white; margin-top: -45px; margin-left: 55px;text-align: center;font-size: 12px;">Rata-rata Process Bulan Ini</div>
+            <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Rata-rata Process Bulan Ini</div> -->
+            <div style="color: white; margin-left: 55px;text-align: center"><strong>14 Hari 16 Jam</strong></div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card no-margin class="full-width" style="background-color:#1A9788;height: 90px; ">
+            <!-- <ion-icon name="contacts" style="font-size: 10ch" item-left></ion-icon> -->
+            <img src="assets/icon/ic_nasabah.png" style="width: 40px;margin-top: 22px">
+            <div style="color: white; margin-top: -35px; margin-left: 35px;text-align: center;font-size: 12px;">Jumlah Customer Aktif Bulan Ini</div>
+            <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Jumlah Customer Aktif Bulan Ini</div> -->
+            <div style="color: white; margin-left: 35px;text-align: center"><strong>330 Orang</strong></div>
+          </ion-card>
+        </ion-col>
+        </ion-row>
+      </ion-slide>
+      <ion-slide>
+        <ion-row>
+        <ion-col col-6>
+          <ion-card no-margin class="full-width" style="background-color:#D78E1E;height: 90px; ">
+            <!-- <ion-icon name="cash" style="font-size: 10ch" item-left></ion-icon> -->
+            <img src="assets/icon/ic_total-pengajuan-klaim.png" style="width: 40px;margin-top: 22px">
+            <div style="color: white; margin-top: -35px; margin-left: 35px;text-align: center;font-size: 12px;">Total Pengajuan Tahun Ini</div>
+            <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Total Pengajuan Tahun Ini</div> -->
+            <div style="color: white; margin-left: 35px;text-align: center"><strong>{{3442730483 | number}}</strong></div>
+          </ion-card>
+        </ion-col>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+
+  <ion-row>
+    <ion-item>
+      <ion-label>Urutkan Berdasarkan</ion-label>
+      <ion-select >
+        <ion-option>Mitra</ion-option>
+        <ion-option>Product</ion-option>
+        <ion-option>Debitur</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item-sliding #item *ngFor="let r of rows" >
+        
+      <ion-item>
+        <!-- <img item-left [src]="" style="width: 25%"> -->
+        <ion-note item-left style="width: 25%">{{r.mitra}}</ion-note>
+        <div><strong>{{r.product}}</strong></div>
+        <div style="color: black;font-size: 12px;"><ion-note>Pokok</ion-note> {{r.pokok | number}}</div>
+        <div style="color: black;font-size: 12px;"><ion-note>Klaim</ion-note> {{r.klaim | number}}</div>
+      
+        <div item-end style="text-align: center">
+          <h1 style="color: black">{{r.terjamin}}</h1>
+          <ion-note>Debitur</ion-note> 
+        </div>
+      </ion-item>
+      
+    </ion-item-sliding>
+    
+    <!-- <ion-item-sliding #item>
+      <ion-item>
+        Item
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button (click)="favorite(item)">Favorite</button>
+        <button ion-button color="danger" (click)="share(item)">Share</button>
+      </ion-item-options>
+  
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)">Unread</button>
+      </ion-item-options>
+    </ion-item-sliding> -->
+  </ion-row>
+  
+</ion-content>
+

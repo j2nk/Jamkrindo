@@ -1,0 +1,95 @@
+<!-- -->
+<ion-header>
+    <ion-navbar color="primary" style="color: white">
+      <!-- <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button> -->
+      <!-- <ion-title> -->
+        {{header}}
+      <!-- </ion-title> -->
+      
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-item tappable class="border-bottom">
+    <ion-icon name="search" color="primary" item-right></ion-icon>
+    <input type='text' style='border: solid; border-radius: 5px;width: 100%;height: 50px;' placeholder='Type to filter...' (keyup)='updateFilter($event)' />
+  </ion-item>
+
+  <ion-slides style="height: 20%;">
+      <ion-slide>
+        <ion-row>
+        <ion-col col-6>
+          <ion-card no-margin class="full-width" style="background-color:#42A6FA;height: 90px; ">
+            <!-- <ion-icon name="alarm" style="font-size: 10ch" item-left></ion-icon> -->
+            <img src="assets/icon/ic_rata-rata-pengajuan.png" style="width: 40px;margin-top: 22px">
+            <div style="color: white; margin-top: -45px; margin-left: 55px;text-align: center;font-size: 12px;">Rata-rata Process Bulan Ini</div>
+            <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Rata-rata Process Bulan Ini</div> -->
+            <div style="color: white; margin-left: 55px;text-align: center"><strong>14 Hari 16 Jam</strong></div>
+          </ion-card>
+        </ion-col>
+        <ion-col col-6>
+          <ion-card no-margin class="full-width" style="background-color:#1A9788;height: 90px; ">
+            <!-- <ion-icon name="contacts" style="font-size: 10ch" item-left></ion-icon> -->
+            <img src="assets/icon/ic_nasabah.png" style="width: 40px;margin-top: 30px">
+            <div style="color: white; margin-top: -35px; margin-left: 35px;text-align: center;font-size: 12px;">Jumlah Customer Aktif Bulan Ini</div>
+            <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Jumlah Customer Aktif Bulan Ini</div> -->
+            <div style="color: white; margin-left: 35px;text-align: center"><strong>330 Orang</strong></div>
+          </ion-card>
+        </ion-col>
+        </ion-row>
+      </ion-slide>
+      <ion-slide>
+        <ion-row>
+        <ion-col col-6>
+          <ion-card no-margin class="full-width" style="background-color:#D78E1E;height: 90px; ">
+            <!-- <ion-icon name="cash" style="font-size: 10ch" item-left></ion-icon> -->
+            <img src="assets/icon/ic_total-pengajuan-klaim.png" style="width: 40px;margin-top: 25px">
+            <div style="color: white; margin-top: -35px; margin-left: 35px;text-align: center;font-size: 12px;">Total Pengajuan Tahun Ini</div>
+            <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Total Pengajuan Tahun Ini</div> -->
+            <div style="color: white; margin-left: 35px;text-align: center"><strong>{{3442730483 | number}}</strong></div>
+          </ion-card>
+        </ion-col>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+  
+  <ngx-datatable
+    [sortType]="'multi'"
+    [headerHeight]="50"
+    [rowHeight]="50"
+    [rows]="rows"
+    [columnMode]="'force'"
+    [scrollbarH]="true"
+    [selectCheck]="checkSelectable"
+    [selected]="selected"
+    [selectionType]="'multi'"
+    (activate)="onActivate($event)"
+    (select)='onSelect($event)'
+    style="color: black"
+    >
+    <ngx-datatable-column prop="no" name="No" [draggable]="false" width="30">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="nama_terjamin" name="Nama Terjamin" [draggable]="false">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="mitra" name="Penerima Jaminan" [draggable]="false">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="total_pengajuan" name="Total Pengajuan" [draggable]="false">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        {{value | number}}
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+
+</ion-content>
+

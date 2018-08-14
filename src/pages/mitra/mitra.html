@@ -1,0 +1,199 @@
+<!-- -->
+<ion-header>
+  <ion-navbar color="primary" style="color: white">
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <!-- <ion-title> -->
+      {{header}}
+    <!-- </ion-title> -->
+    <ion-buttons end>
+      <!-- <button ion-button tappable (click)="presentNotifications($event)">
+        <ion-icon name="notifications"></ion-icon>
+      </button> -->
+      <button ion-button tappable (click)="goToAccount()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+
+    <ion-slides style="height: 20%;">
+        <ion-slide>
+          <ion-row>
+          <ion-col col-6>
+            <ion-card no-margin class="full-width" style="background-color:#42A6FA;height: 90px; ">
+              <!-- <ion-icon name="alarm" style="font-size: 10ch" item-left></ion-icon> -->
+              <img src="assets/icon/ic_rata-rata-pengajuan.png" style="width: 40px;margin-top: 22px">
+              <div style="color: white; margin-top: -45px; margin-left: 55px;text-align: center;font-size: 12px;">Rata-rata Process Bulan Ini</div>
+              <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Rata-rata Process Bulan Ini</div> -->
+              <div style="color: white; margin-left: 55px;text-align: center"><strong>14 Hari 16 Jam</strong></div>
+            </ion-card>
+          </ion-col>
+          <ion-col col-6>
+            <ion-card no-margin class="full-width" style="background-color:#1A9788;height: 90px; ">
+              <!-- <ion-icon name="contacts" style="font-size: 10ch" item-left></ion-icon> -->
+              <img src="assets/icon/ic_nasabah.png" style="width: 40px;margin-top: 30px">
+              <div style="color: white; margin-top: -35px; margin-left: 35px;text-align: center;font-size: 12px;">Jumlah Customer Aktif Bulan Ini</div>
+              <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Jumlah Customer Aktif Bulan Ini</div> -->
+              <div style="color: white; margin-left: 35px;text-align: center"><strong>330 Orang</strong></div>
+            </ion-card>
+          </ion-col>
+          </ion-row>
+        </ion-slide>
+        <ion-slide>
+          <ion-row>
+          <ion-col col-6>
+            <ion-card no-margin class="full-width" style="background-color:#D78E1E;height: 90px; ">
+              <!-- <ion-icon name="cash" style="font-size: 10ch" item-left></ion-icon> -->
+              <img src="assets/icon/ic_total-pengajuan-klaim.png" style="width: 40px;margin-top: 25px">
+              <div style="color: white; margin-top: -35px; margin-left: 35px;text-align: center;font-size: 12px;">Total Pengajuan Tahun Ini</div>
+              <!-- <div style="color: white; margin-top: 15px; margin-left: 5px;text-align: center">Total Pengajuan Tahun Ini</div> -->
+              <div style="color: white; margin-left: 35px;text-align: center"><strong>{{3442730483 | number}}</strong></div>
+            </ion-card>
+          </ion-col>
+          </ion-row>
+        </ion-slide>
+      </ion-slides>
+
+  <ion-segment [(ngModel)]="Segment">
+    <ion-segment-button value="Progress">Progress Status</ion-segment-button>
+    <ion-segment-button value="Terjamin">Nama Terjamin</ion-segment-button>
+  </ion-segment>
+
+  <div class="segment-tab-menu" [ngSwitch]="Segment" style="margin-top: 10px;">  
+    <div [style.display]="Segment == 'Progress' ? 'block' : 'none'">
+        <ion-row>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Klaim Dalam Proses')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="desktop" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_klaim dalam proses.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Klaim Dalam Proses</div>
+              </ion-card>
+            </ion-col>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Pending Proses Klaim')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="timer" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_pending proses klaim.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Pending Proses Klaim</div>
+              </ion-card>
+            </ion-col>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Klaim Register')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="briefcase" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_klaim register.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Klaim Register</div>
+              </ion-card>
+            </ion-col>
+          </ion-row>  
+    
+          <ion-row>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Hutang Klaim')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="analytics" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_hutang klaim.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Hutang Klaim</div>
+              </ion-card>
+            </ion-col>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Klaim Dibayar')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="archive" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_klaim dibayar.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Klaim Dibayar</div>
+              </ion-card>
+            </ion-col>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Selisih Dibayar Dan Banding Klaim')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="bookmarks" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_selisih bayar.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Selisih Dibayar Dan Banding Klaim</div>
+              </ion-card>
+            </ion-col>
+          </ion-row>  
+    
+          <ion-row>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Pending Bayar Klaim')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="calendar" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_pending bayar klaim.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Pending Bayar Klaim</div>
+              </ion-card>
+            </ion-col>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Klaim Ditolak')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="close-circle" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_klaim ditolak.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Klaim Ditolak</div>
+              </ion-card>
+            </ion-col>
+            <ion-col col-4>
+              <ion-card no-margin margin-bottom class="full-width full-height" (click)="Klaim('Lain-lain')">
+                <!-- <div class="num-header"> 1</div> -->
+                <!-- <ion-icon name="code-working" class="icon-at-home"></ion-icon> -->
+                <img src="assets/icon/ic_lain lain.png" style="width: 80%;margin-left: 10px">
+                <div style="text-align: center; font-size: 12px;">Lain-lain</div>
+              </ion-card>
+            </ion-col>
+          </ion-row>  
+
+    </div>
+    
+    <div [style.display]="Segment == 'Terjamin' ? 'block' : 'none'">
+    <ion-item tappable class="border-bottom">
+        <ion-icon name="search" color="primary" item-right></ion-icon>
+        <input type='text' style='border: none;width: 100%;height: 50px;' placeholder='Type to filter...' (keyup)='updateFilter2($event)' />
+      </ion-item>
+      <div style="padding: 10px">
+        <!-- <strong>Top 10 {{Segment}}</strong> -->
+      </div>
+      <ngx-datatable
+        [sortType]="'multi'"
+        [headerHeight]="50"
+        [rowHeight]="50"
+        [rows]="rows2"
+        [columnMode]="'force'"
+        [scrollbarH]="true"
+        [selectCheck]="checkSelectable"
+        [selected]="selected"
+        [selectionType]="'multi'"
+        (activate)="onActivate($event)"
+        (select)='onSelect($event)'
+        style="color: black"
+        >
+        <ngx-datatable-column prop="no" name="No" [draggable]="false" width="30">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="nama_terjamin" name="Nama Terjamin" [draggable]="false">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="mitra" name="Mitra / Penerima Jaminan" [draggable]="false">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="total_pengajuan" name="Total Pengajuan" [draggable]="false">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | number}}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+
+      <!-- <button ion-button block color="secondary" (click)="terjamin('Daftar Terjamin')">Lihat Lainnya</button> -->
+    </div>    
+  </div>
+</ion-content>
+

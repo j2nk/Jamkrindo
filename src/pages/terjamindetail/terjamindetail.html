@@ -1,0 +1,117 @@
+<!-- -->
+<ion-header>
+    <ion-navbar color="primary" style="color: white">
+      <!-- <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button> -->
+      <!-- <ion-title> -->
+        {{header}}
+      <!-- </ion-title> -->
+      
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="animated fadeIn common-bg">
+  <ion-card no-margin margin-bottom class="full-width">
+    <ion-item class="border-bottom" style="text-align: center;">
+      <strong>Detail</strong>
+    </ion-item>
+    <ion-item>Total Pengajuan Klaim 
+      <ion-note item-end>{{1029380 | number}}</ion-note> 
+    </ion-item>
+    
+    <ion-item>Pokok Kredit
+        <ion-note item-end>{{1029380 | number}}</ion-note>
+    </ion-item>
+
+    <ion-item>Penerima Jaminan
+        <ion-note item-end>{{mitra}}</ion-note>
+    </ion-item>
+
+    <ion-item>Unit Kerja Mitra
+        <ion-note item-end>Karyawan</ion-note>
+    </ion-item>
+
+    <ion-item>Cabang Jamkrindo
+        <ion-note item-end>Jakarta</ion-note>
+    </ion-item>
+  </ion-card>
+
+  <ion-card no-margin margin-bottom class="full-width">
+      <ion-item class="border-bottom" style="text-align: center;">
+        <strong>Status Terakhir</strong>
+      </ion-item>
+      <!-- <ion-icon name="cash" style="font-size: 10ch;margin-left: 50px;" item-left></ion-icon> -->
+      <img src="assets/icon/ic_klaim dibayar.png" style="width: 30%; margin-left: 30px">
+      <div style="margin-top: -60px; margin-left: 5px;text-align: center;text-align: center">Klaim Dibayar</div>
+      <div style="margin-top: 30px;margin-left: 5px;text-align: center"><strong>update {{date | date:'dd MMMM yyyy'}}</strong></div>
+      
+      <ion-list class="list-accordion" >
+        <button ion-item detail-none [ngClass]="{active: isGroupShown6()}" (click)="toggleList6()">          
+            <img item-right class="collapse-icon" [src]="isGroupShown6() ? 'assets/icon/ic-next-black.png':'assets/icon/ic-collapsed-black.png'">
+            Show Detail
+          </button>
+            
+        <ion-item ion-item detail-none [ngClass]="isGroupShown6() ? '' : 'hide'">
+            <div>
+              <ion-row>
+                <ion-col>
+                  Klaim Dalam Proses
+                  <ion-note>19/07/2018</ion-note>
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="checkmark" style="float: right;"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </div>
+    
+            <div>
+                <ion-row>
+                    <ion-col>
+              Pending Proses Klaim
+              <ion-note>19/07/2018</ion-note> </ion-col>
+              <ion-col>
+                <ion-icon name="checkmark" style="float: right;"></ion-icon>
+              </ion-col>
+            </ion-row>
+            </div>
+        
+            <div>
+                <ion-row>
+                    <ion-col>
+              Klaim Register
+              <ion-note>19/07/2018</ion-note> </ion-col>
+              <ion-col>
+                <ion-icon name="checkmark" style="float: right;"></ion-icon>
+              </ion-col>
+            </ion-row>
+            </div>
+        
+            <div>
+                <ion-row>
+                    <ion-col>
+              Hutang Klaim
+              <ion-note>19/07/2018</ion-note> </ion-col>
+              <ion-col>
+                <ion-icon name="checkmark" style="float: right;"></ion-icon>
+              </ion-col>
+            </ion-row>
+            </div>
+        
+            <div>
+                <ion-row>
+                    <ion-col>
+              Klaim Dibayar
+              <ion-note>19/07/2018</ion-note> </ion-col>
+              <ion-col>
+                <ion-icon name="checkmark" style="float: right;"></ion-icon>
+              </ion-col>
+            </ion-row>
+            </div>
+        </ion-item>
+      </ion-list>
+
+    </ion-card>
+
+</ion-content>
+
